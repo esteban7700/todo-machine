@@ -1,0 +1,11 @@
+h2 {
+    color: gray;
+}
+
+.completed {
+    color: green;
+}
+
+.total {
+    color: blue;
+}
