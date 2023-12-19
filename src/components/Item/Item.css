@@ -1,0 +1,19 @@
+.item {
+    display: flex;
+    list-style-type: none;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.item-completed {
+    color: green !important;
+    text-decoration: line-through;
+}
+
+.item-base {
+    color: gray;
+    font-size: x-large;
+    margin-inline: 50px;
+    width: 20%;
+    word-wrap: break-word;
+}

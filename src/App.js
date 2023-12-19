@@ -1,24 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { Counter } from './components/Counter/Counter.js'
+import { Search } from './components/Search/Search.js'
+import { List } from './components/List/List.js'
+import { Add } from './components/Add/Add.js'
+import { Item } from './components/Item/Item.js';
+import { Loading } from './components/Loading/Loading.js';
+import { Empty } from './components/Empty/Empty.js';
+import { Error } from './components/Error/Error.js';
+import { Modal } from './components/Modal/Modal.js';
+import { AddForm } from './components/AddForm/AddForm.js';
+import { GeneralContext } from './contexts/GeneralContext';
 
 function App() {
+
+  const {
+    searchedTodos,
+    loading,
+    error,
+    openModal
+  } = React.useContext(GeneralContext)
+
+  const empty = !loading && searchedTodos.length === 0
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <h1>Todo Machine</h1>
+      <Counter></Counter>
+      <Search></Search>
+
+      {loading && <Loading></Loading>}
+      {empty && <Empty></Empty>}
+      {error && <Error></Error>}
+
+      <List>
+        {
+          searchedTodos.map((_, _index) => <Item key={_index} index={_index}></Item>)
+        }
+      </List>
+
+      <Add></Add>
+      {openModal && <Modal><AddForm></AddForm></Modal>}
+    </>
   );
 }
 

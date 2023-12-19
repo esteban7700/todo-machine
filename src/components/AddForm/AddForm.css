@@ -1,0 +1,39 @@
+form {
+    width: 25%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+label {
+    color: black;
+    font-weight: bold;
+    margin: 20px;
+
+}
+
+textarea {
+    border-radius: 2px;
+    padding: 20px;
+    margin: 20px;
+    resize: none;
+    border: 2px solid #ccc
+}
+
+textarea:focus{
+    outline-color: blue;
+}
+
+.button-add {
+    background-color: blue; 
+    margin: 20px;
+    text-align: center;
+    font-family: 'Courier';
+    font-size: medium;
+    position: relative;
+    cursor: pointer;
+    line-height: 30px; 
+    color: white;
+}
